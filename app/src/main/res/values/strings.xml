@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">2024 LG Bet</string>
+
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="main_title">2024 LG 내기</string>
+    <string name="refresh">새로고침</string>
+    <string name="loading_progress_message">Loading....</string>
+    <string name="ranking">순위</string>
+    <string name="name">이름</string>
+    <string name="total_point">총점</string>
+    <string name="player">선수</string>
+</resources>
