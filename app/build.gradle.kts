@@ -11,8 +11,8 @@ android {
         applicationId = "com.bigeyetallman.welcometopranking"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.00.01"
+        versionCode = 2
+        versionName = "1.01.00"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -49,6 +49,36 @@ class MainUserChartListViewAdapter(
             binding.layoutPlayerList.addView(playerView)
         }
 
+        if (Values.newPlayerSelectMap.containsKey(item.name)) {
+            Values.newPlayerSelectMap[item.name]?.forEach { newPlayerName ->
+                var newPlayerView = View.inflate(context, R.layout.user_chart_player_item, null)
+                (newPlayerView.findViewById<View>(R.id.text_view_player_name) as TextView).text =
+                    newPlayerName + " N"
+                (newPlayerView.findViewById<View>(R.id.text_view_player_point) as TextView).text =
+                    String.format(
+                        "%.2f",
+                        (context as MainActivity).values.newPlayerPointMap[newPlayerName]
+                    )
+
+                binding.layoutPlayerList.addView(newPlayerView)
+            }
+        }
+
+        if (Values.removePlayerSelectMap.containsKey(item.name)) {
+            Values.removePlayerSelectMap[item.name]?.forEach { removePlayerName ->
+                var removePlayerView = View.inflate(context, R.layout.user_chart_player_item, null)
+                (removePlayerView.findViewById<View>(R.id.text_view_player_name) as TextView).text =
+                    removePlayerName + " O"
+                (removePlayerView.findViewById<View>(R.id.text_view_player_point) as TextView).text =
+                    String.format(
+                        "%.2f",
+                        Values.oldScoreMap[removePlayerName]
+                    )
+
+                binding.layoutPlayerList.addView(removePlayerView)
+            }
+        }
+
         return binding.root
     }
 }

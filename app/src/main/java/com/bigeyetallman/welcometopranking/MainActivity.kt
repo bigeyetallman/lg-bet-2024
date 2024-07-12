@@ -120,6 +120,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 if (values.playerPointMap.containsKey(word)) {
                     values.playerPointMap[word] = tableWordList[index + 2].toDouble()
                 }
+                if (values.newPlayerPointMap.containsKey(word)) {
+                    values.newPlayerPointMap[word] =
+                        tableWordList[index + 2].toDouble() - Values.oldScoreMap[word]!!
+                }
                 index += 1
             }
 
@@ -151,6 +155,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 if (values.playerPointMap.containsKey(word)) {
                     values.playerPointMap[word] = tableWordList[index + 2].toDouble()
                 }
+                if (values.newPlayerPointMap.containsKey(word)) {
+                    values.newPlayerPointMap[word] =
+                        tableWordList[index + 2].toDouble() - Values.oldScoreMap[word]!!
+                }
                 index += 1
             }
 
@@ -172,6 +180,19 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             for (selectedPlayer in entry.value) {
                 totalPoint += values.playerPointMap[selectedPlayer]!!
             }
+
+            if(Values.newPlayerSelectMap.containsKey(entry.key)){
+                for (newPlayer in Values.newPlayerSelectMap[entry.key]!!) {
+                    totalPoint += values.newPlayerPointMap[newPlayer]!!
+                }
+            }
+
+            if(Values.removePlayerSelectMap.containsKey(entry.key)){
+                for (removePlayer in Values.removePlayerSelectMap[entry.key]!!) {
+                    totalPoint += Values.oldScoreMap[removePlayer]!!
+                }
+            }
+
             values.userTotalPointMap[entry.key] = totalPoint
         }
 
